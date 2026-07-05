@@ -146,3 +146,42 @@ print("Preço RAM adicionado!")
 #### GABINETE ####
 ##################
 
+driver.get('https://www.kabum.com.br/produto/887046/gabinete-gaming-c3tech-aquarius-com-vidro-temperado-sem-fonte-mt-g860bk-')
+driver.implicitly_wait(10)
+
+button = driver.find_element(By.ID, "adopt-accept-all-button")
+button.click()
+
+gabinete_ptbr = driver.find_element(By.XPATH, "(//div[@class='w-full']/span/b)").get_property('innerText')
+gabinete_price = gabinete_ptbr.split('\xa0')[1].replace(',', '.')
+gabinete_price = float(gabinete_price)
+print("Preço Gabinete: "gabinete_price)
+
+item = 'Gabinete'
+descricao = 'C3tech Aquarius'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': gabinete_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço Gabinete adicionado!")
+
+
+
+###############
+#### MOUSE ####
+###############
+
+driver.get('https://pt.aliexpress.com/item/1005012371400759.html?spm=a2g0o.productlist.main.23.459c25f81bcfCL&algo_pvid=fe26c5bb-67a9-42a2-8835-77951b1c0678&algo_exp_id=fe26c5bb-67a9-42a2-8835-77951b1c0678-20&pdp_ext_f=%7B"order"%3A"23"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21336.34%21147.99%21%21%21407.73%21179.40%21%402101f70717832764055654429e72c1%2112000058191763437%21sea%21BR%217714416806%21X%211%210%21n_tag%3A-29911%3Bd%3A137eff22%3Bm03_new_user%3A-29895&curPageLogUid=Lq0Biyq3hzZX&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005012371400759%7C_p_origin_prod%3A')
+driver.implicitly_wait(10)
+
+
+mouse_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
+mouse_price = mouse_ptbr.split('$')[1].replace(',', '.')
+mouse_price = float(mouse_price)
+mouse_price
