@@ -10,6 +10,8 @@ from datetime import date
 
 df = pd.read_csv('PC_Gamer.csv', sep=';')
 
+
+
 #####################
 #### PROCESSADOR ####
 #####################
@@ -39,7 +41,7 @@ best_offer = driver.find_element(By.ID, 'best-offer-string-cc').get_property('in
 price_cpu_ptbr = best_offer.split(' ')[1].split(';')[1]
 cpu_price = price_cpu_ptbr.replace('.', '').replace(',', '.')
 cpu_price = float(cpu_price)
-print("Preço CPU: "cpu_price)
+print(f"Preço CPU: {cpu_price}")
 
 item = 'CPU'
 descricao = 'AMD Ryzen 5 5600GT'
@@ -56,6 +58,7 @@ df = pd.concat([df, new_data], ignore_index=True)
 print("Preço CPU adicionado!")
 
 
+
 #####################
 #### MOTHERBOARD ####
 #####################
@@ -66,7 +69,7 @@ driver.implicitly_wait(10)
 mboard_ptbr = driver.find_element(By.ID, 'valParc').get_property('innerText')
 mboard_price = mboard_ptbr.split(' ')[1].replace(',', '.')
 mboard_price = float(mboard_price)
-print("Preço Placa-mãe: " mboard_price)
+print(f"Preço Placa-mãe: {mboard_price}")
 
 item = 'Motherboard'
 descricao = 'Chronos B550M-CR'
@@ -97,7 +100,7 @@ button.click()
 ssd_price_ptbr = driver.find_element(By.XPATH, "//div[@class='price-default--currentWrap--A_MNgCG']").get_property('innerText')
 ssd_price = ssd_price_ptbr.split('$')[1].replace(',', '.')
 ssd_price = float(ssd_price)
-print("Preço SSD: "ssd_price)
+print(f"Preço SSD: {ssd_price}")
 
 item = 'SSD'
 descricao = 'Movespeed ssd nvme 1TB'
@@ -114,6 +117,7 @@ df = pd.concat([df, new_data], ignore_index=True)
 print("Preço SSD adicionado!")
 
 
+
 #############
 #### RAM ####
 #############
@@ -124,7 +128,7 @@ driver.implicitly_wait(10)
 ram_price_ptbr = driver.find_element(By.XPATH, "//div[@class='price-default--currentWrap--A_MNgCG']").get_property('innerText')
 ram_price = ram_price_ptbr.split('$')[1].replace(',', '.')
 ram_price = float(ram_price)
-print("Preço RAM: "ram_price)
+print(f"Preço RAM: {ram_price}")
 
 item = 'RAM'
 descricao = '1x JUHOR DDR4 8GB 3200MHz CL16'
@@ -155,7 +159,7 @@ button.click()
 gabinete_ptbr = driver.find_element(By.XPATH, "(//div[@class='w-full']/span/b)").get_property('innerText')
 gabinete_price = gabinete_ptbr.split('\xa0')[1].replace(',', '.')
 gabinete_price = float(gabinete_price)
-print("Preço Gabinete: "gabinete_price)
+print(f"Preço Gabinete: {gabinete_price}")
 
 item = 'Gabinete'
 descricao = 'C3tech Aquarius'
@@ -184,4 +188,149 @@ driver.implicitly_wait(10)
 mouse_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
 mouse_price = mouse_ptbr.split('$')[1].replace(',', '.')
 mouse_price = float(mouse_price)
-mouse_price
+print(f"Preço Mouse: {mouse_price}")
+
+item = 'Mouse'
+descricao = 'Attack Shark Wireless X11'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': mouse_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço Mouse adicionado!")
+
+
+
+#################
+#### HEADSET ####
+#################
+
+driver.get('https://pt.aliexpress.com/item/1005009495386384.html?aff_fcid=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&tt=CPS_NORMAL&aff_fsk=_c3gITj9D&aff_platform=shareComponent-detail&sk=_c3gITj9D&aff_trace_key=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&terminal_id=d874b61df0ea490bb40119dc36685fe8&afSmartRedirect=y')
+driver.implicitly_wait(10)
+
+button = driver.find_element(By.XPATH, '/html/body/div[3]/div/div[1]/div/div[1]/div[1]/div[2]/div[8]/div/div/div[2]/div/div/div/div/div[5]')
+button.click()
+
+headset_ptbr = driver.find_element(By.XPATH, '/html/body/div[3]/div/div[1]/div/div[1]/div[1]/div[2]/div[4]/div/div[2]/div[1]/div[1]/span').get_property('innerText')
+headset_price = headset_ptbr.split('$')[1].replace(',', '.')
+headset_price = float(headset_price)
+print(f"Preço Headset: {headset_price}")
+
+item = 'Headset'
+descricao = 'BINNUNE Bluetooth'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': headset_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço Headset adicionado!")
+
+
+
+##################
+#### SOUNDBAR ####
+##################
+
+driver.get('https://pt.aliexpress.com/item/1005006436035998.html?spm=a2g0o.productlist.main.2.26c7y0DSy0DSur&algo_pvid=a6a82e3c-ebe8-41ee-9da0-1fe9c6c92b4a&algo_exp_id=a6a82e3c-ebe8-41ee-9da0-1fe9c6c92b4a-1&pdp_ext_f=%7B"order"%3A"4969"%2C"spu_best_type"%3A"price"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21229.12%21100.55%21%21%21287.08%21125.98%21%402103212b17798072772552193e62f7%2112000037173402947%21sea%21BR%210%21ABX%211%210%21n_tag%3A-29910%3Bd%3Aeaf596e%3Bm03_new_user%3A-29895%3BpisId%3A5000000207258923&curPageLogUid=jr5V9vRJV1Bl&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005006436035998%7C_p_origin_prod%3A')
+driver.implicitly_wait(10)
+
+soundbar_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
+soundbar_price = soundbar_ptbr.split('$')[1].replace(',', '.')
+soundbar_price = float(soundbar_price)
+print(f"Preço Soundbar: {soundbar_price}")
+
+item = 'Soundbar'
+descricao = 'NIYE V8'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': soundbar_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço Soundbar adicionado!")
+
+
+
+#####################
+#### SAVING DATA ####
+#####################
+
+df.to_csv('PC_Gamer.csv', sep=';', index=None)
+
+driver.close()
+
+
+
+#########################
+#### GENERATING PLOT ####
+#########################
+
+itens = df.groupby('Item')
+
+# Armazenar em dicionário
+df_itens = {item: group.copy() for item, group in itens}
+
+# Configurar estilo dos gráficos
+sns.set_style("darkgrid")
+plt.rcParams['figure.figsize'] = (12, 8)
+
+# 1. Ler o arquivo CSV
+df = pd.read_csv('PC_Gamer.csv', sep=';', encoding='utf-8-sig', parse_dates=['Data'])
+
+print("Dados carregados:")
+print(df.tail(10))
+print(f"\nShape: {df.shape}")
+print(f"Tipos de item únicos: {df['Item'].unique()}")
+
+# 2. Agrupar por Item e armazenar em variáveis
+# Criar um dicionário para armazenar os DataFrames de cada item
+df_itens = {}
+
+for item in df['Item'].unique():
+    df_itens[item] = df[df['Item'] == item].copy()
+    df_itens[item] = df_itens[item].sort_values('Data')  # Ordenar por data
+
+# 3. Gráficos separados para cada item (subplots)
+fig, axes = plt.subplots(4, 2, figsize=(15, 12))
+axes = axes.flatten()
+
+cores = ['black', 'blue', 'red', 'green', 'magenta', 'orange', 'darkviolet', 'firebrick']
+
+for idx, (item, df_item) in enumerate(df_itens.items()):
+    if idx < len(axes):
+        cor = cores[idx % len(cores)]
+
+        axes[idx].plot(df_item['Data'], df_item['Preco'], 
+                       marker='o', 
+                       linewidth=2, 
+                       markersize=6,
+                       color=cor)
+        axes[idx].set_title(f'{item}', fontsize=12, fontweight='bold')
+        axes[idx].set_xlabel('Data', fontsize=10)
+        axes[idx].set_ylabel('Preço (R$)', fontsize=10)
+        axes[idx].grid(True, alpha=0.3)
+        axes[idx].tick_params(axis='x', rotation=30)
+
+# Remover subplots vazios (se houver menos de 8 itens)
+for idx in range(len(df_itens), len(axes)):
+    fig.delaxes(axes[idx])
+
+plt.tight_layout()
+
+plt.savefig('plots/pcgamer_prices.png', dpi=300)
+
+plt.show()
