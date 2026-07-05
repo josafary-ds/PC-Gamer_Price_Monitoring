@@ -85,6 +85,36 @@ print("Preço Placa-mãe adicionado!")
 
 
 #############
+#### SSD ####
+#############
+
+driver.get('https://pt.aliexpress.com/item/1005006783107881.html?sourceType=620&channel=coin&improveDiscount=Y&BuyNow=true&utm=iskandarsouzo_sophie&aff_fcid=776b93166200483383f7ee2b8c7a626b-1783267233933-06465-_c3nNHgTr&tt=API&aff_fsk=_c3nNHgTr&afSmartRedirect=y&dp=gx-br-aliexpress-aliexpress-cos&aff_fcid=158f311f0235481b9d6724a876e86c26-1783274078397-07732-_c3IGhl7b&tt=CPS_NORMAL&aff_fsk=_c3IGhl7b&aff_platform=portals-tool&sk=_c3IGhl7b&aff_trace_key=158f311f0235481b9d6724a876e86c26-1783274078397-07732-_c3IGhl7b&terminal_id=e7a44edf1bc34d368a13eb65be5c194e&afSmartRedirect=y')
+driver.implicitly_wait(10)
+
+button = driver.find_element(By.XPATH, "//div[@title='1TB']")
+button.click()
+
+ssd_price_ptbr = driver.find_element(By.XPATH, "//div[@class='price-default--currentWrap--A_MNgCG']").get_property('innerText')
+ssd_price = ssd_price_ptbr.split('$')[1].replace(',', '.')
+ssd_price = float(ssd_price)
+print("Preço SSD: "ssd_price)
+
+item = 'SSD'
+descricao = 'Movespeed ssd nvme 1TB'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': ram_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço SSD adicionado!")
+
+
+#############
 #### RAM ####
 #############
 
