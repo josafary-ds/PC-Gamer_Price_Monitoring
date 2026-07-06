@@ -109,7 +109,7 @@ data = date.today()
 new_data = pd.DataFrame([{
     'Item': item,
     'Descricao': descricao,
-    'Preco': ram_price,
+    'Preco': ssd_price,
     'Data': data
 }])
 
@@ -213,12 +213,13 @@ print("Preço Mouse adicionado!")
 driver.get('https://pt.aliexpress.com/item/1005009495386384.html?aff_fcid=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&tt=CPS_NORMAL&aff_fsk=_c3gITj9D&aff_platform=shareComponent-detail&sk=_c3gITj9D&aff_trace_key=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&terminal_id=d874b61df0ea490bb40119dc36685fe8&afSmartRedirect=y')
 driver.implicitly_wait(10)
 
-button = driver.find_element(By.XPATH, '/html/body/div[3]/div/div[1]/div/div[1]/div[1]/div[2]/div[8]/div/div/div[2]/div/div/div/div/div[5]')
+button = driver.find_element(By.XPATH, "//div[@data-sku-col='14-193']")
 button.click()
 
-headset_ptbr = driver.find_element(By.XPATH, '/html/body/div[3]/div/div[1]/div/div[1]/div[1]/div[2]/div[4]/div/div[2]/div[1]/div[1]/span').get_property('innerText')
+headset_ptbr = driver.find_element(By.XPATH, "//div[@class='price-default--currentWrap--A_MNgCG']").get_property('innerText')
 headset_price = headset_ptbr.split('$')[1].replace(',', '.')
 headset_price = float(headset_price)
+headset_price
 print(f"Preço Headset: {headset_price}")
 
 item = 'Headset'
