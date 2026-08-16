@@ -258,8 +258,8 @@ print("Preço Soundbar adicionado!")
 driver.get(keyboard_link)
 driver.implicitly_wait(10)
 
-button_close = driver.find_element(By.XPATH, "//div[@class='baxia-dialog-close']")
-button_close.click()
+#button_close = driver.find_element(By.XPATH, "//div[@class='baxia-dialog-close']")
+#button_close.click()
 button_option = driver.find_element(By.XPATH, "//div[@class='sku-item--showHot--hRxq3Vm sku-item--image--jMUnnGA']")
 button_option.click()
 
