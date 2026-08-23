@@ -22,6 +22,7 @@ gabinete_link = 'https://www.kabum.com.br/produto/887046/gabinete-gaming-c3tech-
 mouse_link = 'https://pt.aliexpress.com/item/1005012371400759.html?spm=a2g0o.productlist.main.23.459c25f81bcfCL&algo_pvid=fe26c5bb-67a9-42a2-8835-77951b1c0678&algo_exp_id=fe26c5bb-67a9-42a2-8835-77951b1c0678-20&pdp_ext_f=%7B"order"%3A"23"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21336.34%21147.99%21%21%21407.73%21179.40%21%402101f70717832764055654429e72c1%2112000058191763437%21sea%21BR%217714416806%21X%211%210%21n_tag%3A-29911%3Bd%3A137eff22%3Bm03_new_user%3A-29895&curPageLogUid=Lq0Biyq3hzZX&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005012371400759%7C_p_origin_prod%3A'
 headset_link = 'https://pt.aliexpress.com/item/1005009495386384.html?aff_fcid=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&tt=CPS_NORMAL&aff_fsk=_c3gITj9D&aff_platform=shareComponent-detail&sk=_c3gITj9D&aff_trace_key=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&terminal_id=d874b61df0ea490bb40119dc36685fe8&afSmartRedirect=y'
 soundbar_link = 'https://pt.aliexpress.com/item/1005006436035998.html?spm=a2g0o.productlist.main.2.26c7y0DSy0DSur&algo_pvid=a6a82e3c-ebe8-41ee-9da0-1fe9c6c92b4a&algo_exp_id=a6a82e3c-ebe8-41ee-9da0-1fe9c6c92b4a-1&pdp_ext_f=%7B"order"%3A"4969"%2C"spu_best_type"%3A"price"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21229.12%21100.55%21%21%21287.08%21125.98%21%402103212b17798072772552193e62f7%2112000037173402947%21sea%21BR%210%21ABX%211%210%21n_tag%3A-29910%3Bd%3Aeaf596e%3Bm03_new_user%3A-29895%3BpisId%3A5000000207258923&curPageLogUid=jr5V9vRJV1Bl&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005006436035998%7C_p_origin_prod%3A'
+soundbar_red_link = 'https://pt.aliexpress.com/item/1005004684998034.html?spm=a2g0o.productlist.main.1.2c861240DubsIa&algo_pvid=f81d2e67-40df-4e0d-9058-324f7c10291f&algo_exp_id=f81d2e67-40df-4e0d-9058-324f7c10291f-0&pdp_ext_f=%7B"order"%3A"58"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21380.93%21159.99%21%21%2168.05%2128.58%21%402101e7a317874373845623899e0f2e%2112000030094931478%21sea%21BR%217714416806%21X%211%210%21n_tag%3A-29911%3Bd%3A137eff22%3Bm03_new_user%3A-29895&curPageLogUid=08KMvNGPMgAU&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005004684998034%7C_p_origin_prod%3A'
 keyboard_link = 'https://pt.aliexpress.com/item/1005006982966199.html?spm=a2g0o.productlist.main.5.4fd0cWjAcWjAVG&algo_pvid=dd974723-a0f0-40aa-bca7-09a727a07434&algo_exp_id=dd974723-a0f0-40aa-bca7-09a727a07434-4&pdp_ext_f=%7B"order"%3A"1436"%2C"spu_best_type"%3A"price"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21369.65%21174.62%21%21%21443.60%21209.56%21%402101e5ab17868916822482882e0eee%2112000038938334333%21sea%21BR%217714416806%21X%211%210%21n_tag%3A-29911%3Bd%3A137eff22%3Bm03_new_user%3A-29895%3BpisId%3A5000000214354137&curPageLogUid=9VrS02B33GmJ&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005006982966199%7C_p_origin_prod%3A'
 
 
@@ -77,58 +78,27 @@ print("Preço CPU adicionado!")
 #### MOTHERBOARD ####
 #####################
 
-driver.get(motherboard_link)
-driver.implicitly_wait(10)
+#driver.get(motherboard_link)
+#driver.implicitly_wait(10)
 
-mboard_ptbr = driver.find_element(By.ID, 'valParc').get_property('innerText')
-mboard_price = mboard_ptbr.split(' ')[1].replace(',', '.')
-mboard_price = float(mboard_price)
-print(f"Preço Placa-mãe: {mboard_price}")
+#mboard_ptbr = driver.find_element(By.ID, 'valParc').get_property('innerText')
+#mboard_price = mboard_ptbr.split(' ')[1].replace(',', '.')
+#mboard_price = float(mboard_price)
+#print(f"Preço Placa-mãe: {mboard_price}")
 
-item = 'Motherboard'
-descricao = 'Chronos B550M-CR'
-data = date.today()
+#item = 'Motherboard'
+#descricao = 'Chronos B550M-CR'
+#data = date.today()
 
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': mboard_price,
-    'Data': data
-}])
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': mboard_price,
+#    'Data': data
+#}])
 
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço Placa-mãe adicionado!")
-
-
-
-#############
-#### SSD ####
-#############
-
-driver.get(ssd_link)
-driver.implicitly_wait(10)
-
-button = driver.find_element(By.ID, "adopt-accept-all-button")
-button.click()
-
-ssd_price_ptbr = driver.find_element(By.XPATH, "(//div[@class='w-full']/span/b)").get_property('innerText')
-ssd_price = ssd_price_ptbr.split('\xa0')[1].replace('.', '').replace(',', '.')
-ssd_price = round(float(ssd_price)*10, 2)
-print(f"Preço SSD: {ssd_price}")
-
-item = 'SSD'
-descricao = 'Husky ssd nvme 512GB'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': ssd_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço SSD adicionado!")
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço Placa-mãe adicionado!")
 
 
 
@@ -160,6 +130,50 @@ new_data = pd.DataFrame([{
 
 df = pd.concat([df, new_data], ignore_index=True)
 print("Preço Gabinete adicionado!")
+
+
+
+#################
+#### TECLADO ####
+#################
+
+driver.get(keyboard_link)
+driver.implicitly_wait(10)
+
+try:
+    # Tenta encontrar o elemento com o XPath específico
+    button_close = driver.find_element(By.XPATH, "//div[@class='baxia-dialog-close']")
+    
+    # Se encontrou, clica
+    button_close.click()
+    print("Botão encontrado e clicado com sucesso!")
+    
+except NoSuchElementException:
+    # Se não encontrou, apenas continua
+    print("Botão NÃO encontrado. Continuando execução...")
+
+
+button_option = driver.find_element(By.XPATH, "//div[@class='sku-item--showHot--hRxq3Vm sku-item--image--jMUnnGA']")
+button_option.click()
+
+keyboard_ptbr = driver.find_element(By.XPATH, "//div[@class='price-default--currentWrap--A_MNgCG']").get_property('innerText')
+keyboard_price = keyboard_ptbr.split('$')[1].replace(',', '.')
+keyboard_price = float(keyboard_price)
+print(f"Preço Teclado: {keyboard_price}")
+
+item = 'Teclado'
+descricao = 'M96 teclado bluetooth'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': keyboard_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço Teclado adicionado!")
 
 
 
@@ -223,10 +237,40 @@ df = pd.concat([df, new_data], ignore_index=True)
 print("Preço Headset adicionado!")
 
 
+#############
+#### SSD ####
+#############
 
-##################
-#### SOUNDBAR ####
-##################
+driver.get(ssd_link)
+driver.implicitly_wait(10)
+
+button = driver.find_element(By.ID, "adopt-accept-all-button")
+button.click()
+
+ssd_price_ptbr = driver.find_element(By.XPATH, "(//div[@class='w-full']/span/b)").get_property('innerText')
+ssd_price = ssd_price_ptbr.split('\xa0')[1].replace('.', '').replace(',', '.')
+ssd_price = round(float(ssd_price)*10, 2)
+print(f"Preço SSD: {ssd_price}")
+
+item = 'SSD'
+descricao = 'Husky ssd nvme 512GB'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': ssd_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço SSD adicionado!")
+
+
+
+##########################
+#### SOUNDBAR CHINESA ####
+##########################
 
 driver.get(soundbar_link)
 driver.implicitly_wait(10)
@@ -251,36 +295,44 @@ df = pd.concat([df, new_data], ignore_index=True)
 print("Preço Soundbar adicionado!")
 
 
-#################
-#### TECLADO ####
-#################
 
-driver.get(keyboard_link)
-driver.implicitly_wait(10)
+###########################
+#### SOUNDBAR REDRAGON ####
+###########################
 
-#button_close = driver.find_element(By.XPATH, "//div[@class='baxia-dialog-close']")
-#button_close.click()
-button_option = driver.find_element(By.XPATH, "//div[@class='sku-item--showHot--hRxq3Vm sku-item--image--jMUnnGA']")
-button_option.click()
+driver.get(soundbar_red_link)
 
-keyboard_ptbr = driver.find_element(By.XPATH, "//div[@class='price-default--currentWrap--A_MNgCG']").get_property('innerText')
-keyboard_price = keyboard_ptbr.split('$')[1].replace(',', '.')
-keyboard_price = float(keyboard_price)
-print(f"Preço Teclado: {keyboard_price}")
+driver.implicitly_wait(5)
 
-item = 'Teclado'
-descricao = 'M96 teclado bluetooth'
+try:
+    # Tenta encontrar o elemento com o XPath específico
+    button_close = driver.find_element(By.XPATH, "//div[@class='baxia-dialog-close']")
+    
+    # Se encontrou, clica
+    button_close.click()
+    print("Botão encontrado e clicado com sucesso!")
+    
+except NoSuchElementException:
+    # Se não encontrou, apenas continua
+    print("Botão NÃO encontrado. Continuando execução...")
+
+soundbar_red_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
+soundbar_red_price = soundbar_red_ptbr.split('$')[1].replace(',', '.')
+soundbar_red_price = float(soundbar_red_price)
+
+item = 'Soundbar Redragon'
+descricao = 'Redragon Adiemus'
 data = date.today()
 
 new_data = pd.DataFrame([{
     'Item': item,
     'Descricao': descricao,
-    'Preco': keyboard_price,
+    'Preco': soundbar_red_price,
     'Data': data
 }])
 
 df = pd.concat([df, new_data], ignore_index=True)
-print("Preço Teclado adicionado!")
+print("Preço Soundbar Redragon adicionado!")
 
 
 

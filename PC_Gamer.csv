@@ -1,89 +1,77 @@
 Item;Descricao;Preco;Data
 CPU;AMD Ryzen 5 5600GT;1032.93;2026-06-04
-Motherboard;Chronos B550M-CR;647.05;2026-06-04
 Gabinete;C3tech Aquarius;299.83;2026-06-04
 Mouse;Attack Shark Wireless X11;114.29;2026-06-04
 Headset;BINNUNE Bluetooth;93.11;2026-06-04
 Soundbar;NIYE V8;99.2;2026-06-04
 CPU;AMD Ryzen 5 5600GT;1032.93;2026-06-09
-Motherboard;Chronos B550M-CR;647.05;2026-06-09
 Gabinete;C3tech Aquarius;299.83;2026-06-09
 Mouse;Attack Shark Wireless X11;116.3;2026-06-09
 Headset;BINNUNE Bluetooth;99.76;2026-06-09
 Soundbar;NIYE V8;100.92;2026-06-09
 CPU;AMD Ryzen 5 5600GT;1031.76;2026-06-15
-Motherboard;Chronos B550M-CR;647.05;2026-06-15
 Gabinete;C3tech Aquarius;299.83;2026-06-15
 Mouse;Attack Shark Wireless X11;135.81;2026-06-15
 Headset;BINNUNE Bluetooth;99.58;2026-06-15
 Soundbar;NIYE V8;98.32;2026-06-15
 CPU;AMD Ryzen 5 5600GT;1031.76;2026-06-21
-Motherboard;Chronos B550M-CR;647.05;2026-06-21
 Gabinete;C3tech Aquarius;299.83;2026-06-21
 Mouse;Attack Shark Wireless X11;154.99;2026-06-21
 Headset;BINNUNE Bluetooth;105.61;2026-06-21
 Soundbar;NIYE V8;117.99;2026-06-21
 CPU;AMD Ryzen 5 5600GT;1000.15;2026-06-28
-Motherboard;Chronos B550M-CR;647.05;2026-06-28
 Gabinete;C3tech Aquarius;289.72;2026-06-28
 Mouse;Attack Shark Wireless X11;136.13;2026-06-28
 Headset;BINNUNE Bluetooth;120.81;2026-06-28
 Soundbar;NIYE V8;104.11;2026-06-28
 CPU;AMD Ryzen 5 5600GT;1009.58;2026-07-05
-Motherboard;Chronos B550M-CR;647.05;2026-07-05
 SSD;Movespeed ssd nvme 1TB;982.58;2026-07-05
 Gabinete;C3tech Aquarius;289.72;2026-07-05
 Mouse;Attack Shark Wireless X11;127.97;2026-07-05
 Headset;BINNUNE Bluetooth;118.05;2026-07-05
 Soundbar;NIYE V8;96.04;2026-07-05
 CPU;AMD Ryzen 5 5600GT;995.08;2026-07-12
-Motherboard;Chronos B550M-CR;647.05;2026-07-12
 SSD;Movespeed ssd nvme 1TB;891.72;2026-07-12
 Gabinete;C3tech Aquarius;289.72;2026-07-12
 Mouse;Attack Shark Wireless X11;140.23;2026-07-12
 Headset;BINNUNE Bluetooth;112.12;2026-07-12
 Soundbar;NIYE V8;99.01;2026-07-12
 CPU;AMD Ryzen 5 5600GT;1022.78;2026-07-17
-Motherboard;Chronos B550M-CR;647.05;2026-07-17
 SSD;Movespeed ssd nvme 1TB;1117.64;2026-07-17
 Gabinete;C3tech Aquarius;289.72;2026-07-17
 Mouse;Attack Shark Wireless X11;139.06;2026-07-17
 Headset;BINNUNE Bluetooth;119.42;2026-07-17
 Soundbar;NIYE V8;98.98;2026-07-17
 CPU;AMD Ryzen 5 5600GT;1003.46;2026-07-27
-Motherboard;Chronos B550M-CR;647.05;2026-07-27
 SSD;Movespeed ssd nvme 1TB;1117.64;2026-07-27
 Gabinete;C3tech Aquarius;289.72;2026-07-27
 Mouse;Attack Shark Wireless X11;139.78;2026-07-27
 Headset;BINNUNE Bluetooth;120.68;2026-07-27
 Soundbar;NIYE V8;98.69;2026-07-27
 CPU;AMD Ryzen 5 5600GT;999.9;2026-08-01
-Motherboard;Chronos B550M-CR;611.75;2026-08-01
 SSD;Movespeed ssd nvme 1TB;1764.69;2026-08-01
 Gabinete;C3tech Aquarius;289.72;2026-08-01
 Mouse;Attack Shark Wireless X11;126.58;2026-08-01
 Headset;BINNUNE Bluetooth;107.59;2026-08-01
 Soundbar;NIYE V8;93.01;2026-08-01
 CPU;AMD Ryzen 5 5600GT;989.99;2026-08-10
-Motherboard;Chronos B550M-CR;611.75;2026-08-10
 SSD;Husky ssd nvme 512GB;794.3;2026-08-10
 Gabinete;C3tech Aquarius;289.7;2026-08-10
 Mouse;Attack Shark Wireless X11;127.29;2026-08-10
 Headset;BINNUNE Bluetooth;108.29;2026-08-10
 Soundbar;NIYE V8;95.77;2026-08-10
 CPU;AMD Ryzen 5 5600GT;1004.16;2026-08-16
-Motherboard;Chronos B550M-CR;611.75;2026-08-16
 SSD;Husky ssd nvme 512GB;829.5;2026-08-16
 Gabinete;C3tech Aquarius;289.7;2026-08-16
+Teclado;M96 teclado bluetooth;189.07;2026-08-16
 Mouse;Attack Shark Wireless X11;146.48;2026-08-16
 Headset;BINNUNE Bluetooth;126.18;2026-08-16
 Soundbar;NIYE V8;104.59;2026-08-16
-Teclado;M96 teclado bluetooth;189.07;2026-08-16
 CPU;AMD Ryzen 5 5600GT;1032.93;2026-08-22
-Motherboard;Chronos B550M-CR;611.75;2026-08-22
-SSD;Husky ssd nvme 512GB;829.5;2026-08-22
 Gabinete;C3tech Aquarius;289.7;2026-08-22
-Mouse;Attack Shark Wireless X11;138.58;2026-08-22
+Teclado;M96 teclado bluetooth;182.02;2026-08-22
+Mouse;Attack Shark Wireless X11;132.91;2026-08-22
 Headset;BINNUNE Bluetooth;120.14;2026-08-22
-Soundbar;NIYE V8;100.3;2026-08-22
-Teclado;M96 teclado bluetooth;184.55;2026-08-22
+SSD;Husky ssd nvme 512GB;829.5;2026-08-22
+Soundbar;NIYE V8;93.55;2026-08-22
+Soundbar Redragon;Redragon Adiemus;144.76;2026-08-22
