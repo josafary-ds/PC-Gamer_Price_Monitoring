@@ -112,7 +112,7 @@ driver.implicitly_wait(10)
 #button = driver.find_element(By.ID, "adopt-accept-all-button")
 #button.click()
 
-gabinete_ptbr = driver.find_element(By.XPATH, "(//div[@class='w-full']/span/b)").get_property('innerText')
+gabinete_ptbr = driver.find_element(By.XPATH, "(//p[@class='flex flex-wrap items-end gap-4 font-bold text-gray-900']/span[@class='text-2xl leading-tight'])[1]").get_property('innerText')
 gabinete_price = gabinete_ptbr.split('\xa0')[1].replace(',', '.')
 gabinete_price = round(float(gabinete_price)*10, 2)
 print(f"Preço Gabinete: {gabinete_price}")
