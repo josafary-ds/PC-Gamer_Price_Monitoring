@@ -247,7 +247,7 @@ driver.implicitly_wait(10)
 button = driver.find_element(By.ID, "adopt-accept-all-button")
 button.click()
 
-ssd_price_ptbr = driver.find_element(By.XPATH, "(//div[@class='w-full']/span/b)").get_property('innerText')
+ssd_price_ptbr = driver.find_element(By.XPATH, "(//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs'])").get_property('innerText')
 ssd_price = ssd_price_ptbr.split('\xa0')[1].replace('.', '').replace(',', '.')
 ssd_price = round(float(ssd_price)*10, 2)
 print(f"Preço SSD: {ssd_price}")
