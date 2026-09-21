@@ -259,7 +259,7 @@ print("Preço SSD adicionado!")
 driver.get(soundbar_link)
 driver.implicitly_wait(10)
 
-soundbar_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
+soundbar_ptbr = driver.find_element(By.XPATH, "(//span[@class='price-default--current--F8OlYIo'])").get_property('innerText')
 soundbar_price = soundbar_ptbr.split('$')[1].replace(',', '.')
 soundbar_price = float(soundbar_price)
 print(f"Preço Soundbar: {soundbar_price}")
