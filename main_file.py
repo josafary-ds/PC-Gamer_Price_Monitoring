@@ -17,12 +17,11 @@ df = pd.read_csv('PC_Gamer.csv', sep=';')
 
 cpu_link = 'https://www.amazon.com.br/gp/aw/d/B0CQ4DTJYX?openid.assoc_handle=bramazon&openid.claimed_id=https%3A%2F%2Fwww.amazon.com.br%2Fap%2Fid%2Famzn1.account.AFSLCZAT6KPJPJL2MNOJJLJ4UUPA&openid.identity=https%3A%2F%2Fwww.amazon.com.br%2Fap%2Fid%2Famzn1.account.AFSLCZAT6KPJPJL2MNOJJLJ4UUPA&openid.mode=id_res&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.op_endpoint=https%3A%2F%2Fwww.amazon.com.br%2Fap%2Fsignin&openid.response_nonce=2026-08-01T19%3A18%3A36Z-7015999307553914865&openid.return_to=https%3A%2F%2Fwww.amazon.com.br%2Fgp%2Faw%2Fd%2FB0CQ4DTJYX&openid.signed=assoc_handle%2Cclaimed_id%2Cidentity%2Cmode%2Cns%2Cop_endpoint%2Cresponse_nonce%2Creturn_to%2Cns.pape%2Cpape.auth_policies%2Cpape.auth_time%2Csigned&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.auth_policies=http%3A%2F%2Fschemas.openid.net%2Fpape%2Fpolicies%2F2007%2F06%2Fnone&openid.pape.auth_time=2026-08-01T19%3A18%3A36Z&openid.sig=vZYwcxsW9yDyHL7oq%2FVX8u6giWcqbwWnMK7BYFzHluM%3D&serial='
 motherboard_link = 'https://www.terabyteshop.com.br/produto/18646/placa-mae-msi-b550m-a-pro-chipset-b550-amd-am4-matx-ddr4?gad_source=1&gad_campaignid=16136003025&gclid=CjwKCAjw-dfOBhAjEiwAq0RwIz8B9H8t5nWpALxwlzeNSRzDe_0N0SyEK5sfVcw5-6LGCgzhKTTASBoCiYIQAvD_BwE'
-ssd_link = 'https://www.kabum.com.br/produto/626785/ssd-pcie-husky-thunderboost-512gb-m-2-nvme-leitura-2200mb-s-gravacao-1600mb-s-preto-hssd002512'
+ssd_link = 'https://pt.aliexpress.com/item/1005008637007198.html?spm=a2g0o.detail.pcDetailTopMoreOtherSeller.5.332c14e5OoUQoO&gps-id=pcDetailTopMoreOtherSeller&scm=1007.40050.354490.0&scm_id=1007.40050.354490.0&scm-url=1007.40050.354490.0&pvid=e263937f-c5ec-4818-8f08-909e58da74a9&_t=gps-id%3ApcDetailTopMoreOtherSeller%2Cscm-url%3A1007.40050.354490.0%2Cpvid%3Ae263937f-c5ec-4818-8f08-909e58da74a9%2Ctpp_buckets%3A668%232846%238114%231999&pdp_ext_f=%7B"order"%3A"3561"%2C"eval"%3A"1"%2C"sceneId"%3A"30050"%2C"fromPage"%3A"recommend"%7D&pdp_npi=6%40dis%21BRL%21543.95%21380.76%21%21%2197.10%2167.97%21%402101d3fe17909007649482517e14a9%2112000060662629192%21rec%21BR%217714416806%21X%211%210%21n_tag%3A-29911%3Bd%3A137eff22%3Bm03_new_user%3A-29895&utparam-url=scene%3ApcDetailTopMoreOtherSeller%7Cquery_from%3A%7Cx_object_id%3A1005008637007198%7C_p_origin_prod%3A'
 gabinete_link = 'https://www.kabum.com.br/produto/887046/gabinete-gaming-c3tech-aquarius-com-vidro-temperado-sem-fonte-mt-g860bk-'
 mouse_link = 'https://pt.aliexpress.com/item/1005012371400759.html?spm=a2g0o.productlist.main.23.459c25f81bcfCL&algo_pvid=fe26c5bb-67a9-42a2-8835-77951b1c0678&algo_exp_id=fe26c5bb-67a9-42a2-8835-77951b1c0678-20&pdp_ext_f=%7B"order"%3A"23"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21336.34%21147.99%21%21%21407.73%21179.40%21%402101f70717832764055654429e72c1%2112000058191763437%21sea%21BR%217714416806%21X%211%210%21n_tag%3A-29911%3Bd%3A137eff22%3Bm03_new_user%3A-29895&curPageLogUid=Lq0Biyq3hzZX&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005012371400759%7C_p_origin_prod%3A'
 headset_link = 'https://pt.aliexpress.com/item/1005009495386384.html?aff_fcid=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&tt=CPS_NORMAL&aff_fsk=_c3gITj9D&aff_platform=shareComponent-detail&sk=_c3gITj9D&aff_trace_key=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&terminal_id=d874b61df0ea490bb40119dc36685fe8&afSmartRedirect=y'
 soundbar_link = 'https://pt.aliexpress.com/item/1005006436035998.html?spm=a2g0o.productlist.main.2.26c7y0DSy0DSur&algo_pvid=a6a82e3c-ebe8-41ee-9da0-1fe9c6c92b4a&algo_exp_id=a6a82e3c-ebe8-41ee-9da0-1fe9c6c92b4a-1&pdp_ext_f=%7B"order"%3A"4969"%2C"spu_best_type"%3A"price"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21229.12%21100.55%21%21%21287.08%21125.98%21%402103212b17798072772552193e62f7%2112000037173402947%21sea%21BR%210%21ABX%211%210%21n_tag%3A-29910%3Bd%3Aeaf596e%3Bm03_new_user%3A-29895%3BpisId%3A5000000207258923&curPageLogUid=jr5V9vRJV1Bl&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005006436035998%7C_p_origin_prod%3A'
-soundbar_red_link = 'https://pt.aliexpress.com/item/1005004684998034.html?spm=a2g0o.productlist.main.1.2c861240DubsIa&algo_pvid=f81d2e67-40df-4e0d-9058-324f7c10291f&algo_exp_id=f81d2e67-40df-4e0d-9058-324f7c10291f-0&pdp_ext_f=%7B"order"%3A"58"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21380.93%21159.99%21%21%2168.05%2128.58%21%402101e7a317874373845623899e0f2e%2112000030094931478%21sea%21BR%217714416806%21X%211%210%21n_tag%3A-29911%3Bd%3A137eff22%3Bm03_new_user%3A-29895&curPageLogUid=08KMvNGPMgAU&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005004684998034%7C_p_origin_prod%3A'
 keyboard_link = 'https://www.amazon.com.br/Teclado-Mecânico-Redragon-Kumara-Switch/dp/B0C1QFVYQJ/ref=asc_df_B0C1QFVYQJ?mcid=72fcea083724318fb0a2122c67ecec3d&tag=googleshopp00-20&linkCode=df0&hvadid=709884378379&hvpos=&hvnetw=g&hvrand=9615461458994901117&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001621&hvtargid=pla-2243950074900&psc=1&hvocijid=9615461458994901117-B0C1QFVYQJ-&hvexpln=0&language=pt_BR'
 
 
@@ -106,30 +105,30 @@ print("Preço CPU adicionado!")
 #### GABINETE ####
 ##################
 
-driver.get(gabinete_link)
-driver.implicitly_wait(10)
+#driver.get(gabinete_link)
+#driver.implicitly_wait(10)
 
 #button = driver.find_element(By.ID, "adopt-accept-all-button")
 #button.click()
 
-gabinete_ptbr = driver.find_element(By.XPATH, "(//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs'])").get_property('innerText')
-gabinete_price = gabinete_ptbr.split('\xa0')[1].replace(',', '.')
-gabinete_price = round(float(gabinete_price)*10, 2)
-print(f"Preço Gabinete: {gabinete_price}")
+#gabinete_ptbr = driver.find_element(By.XPATH, "(//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs'])").get_property('innerText')
+#gabinete_price = gabinete_ptbr.split('\xa0')[1].replace(',', '.')
+#gabinete_price = round(float(gabinete_price)*10, 2)
+#print(f"Preço Gabinete: {gabinete_price}")
 
-item = 'Gabinete'
-descricao = 'C3tech Aquarius'
-data = date.today()
+#item = 'Gabinete'
+#descricao = 'C3tech Aquarius'
+#data = date.today()
 
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': gabinete_price,
-    'Data': data
-}])
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': gabinete_price,
+#    'Data': data
+#}])
 
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço Gabinete adicionado!")
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço Gabinete adicionado!")
 
 
 
@@ -228,22 +227,30 @@ print("Preço Headset adicionado!")
 driver.get(ssd_link)
 driver.implicitly_wait(10)
 
-button = driver.find_element(By.ID, "adopt-accept-all-button")
-button.click()
+#button = driver.find_element(By.ID, "adopt-accept-all-button")
+#button.click()
 
-ssd_price_ptbr = driver.find_element(By.XPATH, "(//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs'])").get_property('innerText')
-ssd_price = ssd_price_ptbr.split('\xa0')[1].replace('.', '').replace(',', '.')
-ssd_price = round(float(ssd_price)*10, 2)
-print(f"Preço SSD: {ssd_price}")
+button_550gb = driver.find_element(By.XPATH, "//div[@data-sku-col='19032-8647']")
+button_550gb.click()
+
+ssd_price_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
+ssd_price = ssd_price_ptbr.split('$')[1].replace(',', '.')
+ssd_price = float(ssd_price)
+
+importacao = ssd_price*0.16
+icms = ssd_price*0.29
+
+ssd_aliex_price = ssd_price + importacao + icms
+print(f"Preço SSD: {ssd_aliex_price}")
 
 item = 'SSD'
-descricao = 'Husky ssd nvme 512GB'
+descricao = 'SSD Netac nvme 500GB'
 data = date.today()
 
 new_data = pd.DataFrame([{
     'Item': item,
     'Descricao': descricao,
-    'Preco': ssd_price,
+    'Preco': ssd_aliex_price,
     'Data': data
 }])
 
@@ -252,9 +259,9 @@ print("Preço SSD adicionado!")
 
 
 
-##########################
-#### SOUNDBAR CHINESA ####
-##########################
+##################
+#### SOUNDBAR ####
+##################
 
 driver.get(soundbar_link)
 driver.implicitly_wait(10)
@@ -277,46 +284,6 @@ new_data = pd.DataFrame([{
 
 df = pd.concat([df, new_data], ignore_index=True)
 print("Preço Soundbar adicionado!")
-
-
-
-###########################
-#### SOUNDBAR REDRAGON ####
-###########################
-
-driver.get(soundbar_red_link)
-
-driver.implicitly_wait(5)
-
-try:
-    # Tenta encontrar o elemento com o XPath específico
-    button_close = driver.find_element(By.XPATH, "//div[@class='baxia-dialog-close']")
-    
-    # Se encontrou, clica
-    button_close.click()
-    print("Botão encontrado e clicado com sucesso!")
-    
-except NoSuchElementException:
-    # Se não encontrou, apenas continua
-    print("Botão NÃO encontrado. Continuando execução...")
-
-soundbar_red_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
-soundbar_red_price = soundbar_red_ptbr.split('$')[1].replace(',', '.')
-soundbar_red_price = float(soundbar_red_price)
-
-item = 'Soundbar Redragon'
-descricao = 'Redragon Adiemus'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': soundbar_red_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço Soundbar Redragon adicionado!")
 
 
 
