@@ -240,7 +240,7 @@ ssd_price = float(ssd_price)
 importacao = ssd_price*0.16
 icms = ssd_price*0.29
 
-ssd_aliex_price = ssd_price + importacao + icms
+ssd_aliex_price = round(ssd_price + importacao + icms, 2)
 print(f"Preço SSD: {ssd_aliex_price}")
 
 item = 'SSD'
@@ -308,7 +308,7 @@ df_itens = {item: group.copy() for item, group in itens}
 
 # Configurar estilo dos gráficos
 sns.set_style("darkgrid")
-plt.rcParams['figure.figsize'] = (12, 8)
+plt.rcParams['figure.figsize'] = (12, 6)
 
 # 1. Ler o arquivo CSV
 df = pd.read_csv('PC_Gamer.csv', sep=';', encoding='utf-8-sig', parse_dates=['Data'])
