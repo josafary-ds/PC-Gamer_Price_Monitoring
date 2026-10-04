@@ -308,7 +308,7 @@ df_itens = {item: group.copy() for item, group in itens}
 
 # Configurar estilo dos gráficos
 sns.set_style("darkgrid")
-plt.rcParams['figure.figsize'] = (12, 6)
+plt.rcParams['figure.figsize'] = (12, 8)
 
 # 1. Ler o arquivo CSV
 df = pd.read_csv('PC_Gamer.csv', sep=';', encoding='utf-8-sig', parse_dates=['Data'])
@@ -327,7 +327,7 @@ for item in df['Item'].unique():
     df_itens[item] = df_itens[item].sort_values('Data')  # Ordenar por data
 
 # 3. Gráficos separados para cada item (subplots)
-fig, axes = plt.subplots(4, 2, figsize=(15, 12))
+fig, axes = plt.subplots(3, 2, figsize=(15, 12))
 axes = axes.flatten()
 
 cores = ['black', 'blue', 'red', 'green', 'magenta', 'orange', 'darkviolet', 'firebrick']
