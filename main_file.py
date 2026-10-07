@@ -50,7 +50,7 @@ except NoSuchElementException:
     # Se não encontrou, apenas continua
     print("Botão NÃO encontrado. Continuando execução...")
 
-best_offer = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']/span[@class='a-price aok-align-center apex-pricetopay-value']").get_property('innerText')
+best_offer = driver.find_element(By.XPATH, "//div[@class='a-column a-span12 a-text-left']").get_property('innerText')
 
 price_cpu_ptbr = best_offer.split('\n')[0].split('R$')[1]
 cpu_price = price_cpu_ptbr.replace('.', '').replace(',', '.')
