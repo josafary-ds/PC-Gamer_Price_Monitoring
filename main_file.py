@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -188,8 +189,9 @@ print("Preço CPU adicionado!")
 driver.get(keyboard_link)
 driver.implicitly_wait(10)
 
-keyboard_ptbr = driver.find_element(By.XPATH, "//span[@class='best-offer-name a-text-bold']").get_property('innerText')
-keyboard_price = keyboard_ptbr.split('\xa0')[1].split(' ')[0].replace(',', '.')
+keyboard_ptbr = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']").get_property('innerText')
+
+keyboard_price = keyboard_ptbr.split('\n')[0].split('$')[1].replace(',', '.')
 keyboard_price = float(keyboard_price)
 print(f"Preço Teclado: {keyboard_price}")
 
