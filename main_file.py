@@ -30,6 +30,44 @@ keyboard_link = 'https://www.amazon.com.br/Teclado-Mecânico-Redragon-Kumara-Swi
 #### PROCESSADOR ####
 #####################
 
+def element_verify(driver, xpath, max_tentativas=3, tempo_espera=3):
+    """
+    Verifica a presença de um elemento pelo XPath.
+    Se não encontrar, dá refresh na página e tenta novamente.
+    Após max_tentativas sem sucesso, para o código com mensagem de erro.
+    
+    Args:
+        driver: instância do webdriver
+        xpath: string do XPath a ser verificado
+        max_tentativas: número máximo de tentativas (padrão: 3)
+        tempo_espera: segundos de espera após refresh (padrão: 3)
+    
+    Returns:
+        O elemento encontrado
+    """
+    for tentativa in range(1, max_tentativas + 1):
+        try:
+            elemento = driver.find_element(By.XPATH, xpath)
+            print(f"✅ Elemento encontrado na tentativa {tentativa}!")
+            return elemento
+        except NoSuchElementException:
+            print(f"⚠️  Tentativa {tentativa}/{max_tentativas}: elemento não encontrado.")
+            
+            # Se ainda não atingiu o máximo de tentativas, dá refresh
+            if tentativa < max_tentativas:
+                print(f"🔄 Atualizando a página e aguardando {tempo_espera}s...")
+                driver.refresh()
+                time.sleep(tempo_espera)
+    
+    # Se chegou aqui, esgotou as tentativas
+    print("\n" + "="*60)
+    print("❌ ERRO: Elemento não encontrado após 3 tentativas!")
+    print(f"   XPath verificado: {xpath}")
+    print("   Verifique se o endereço XPATH está correto.")
+    print("="*60)
+    driver.quit()
+    raise SystemExit("Execução interrompida: elemento não encontrado.")
+
 driver = webdriver.Chrome()
 driver.get(cpu_link)
 
@@ -50,9 +88,20 @@ except NoSuchElementException:
     # Se não encontrou, apenas continua
     print("Botão NÃO encontrado. Continuando execução...")
 
-best_offer = driver.find_element(By.XPATH, "//div[@class='a-column a-span12 a-text-left']").get_property('innerText')
 
-price_cpu_ptbr = best_offer.split('\n')[0].split('R$')[1]
+# Chama a função com o XPath desejado
+elemento = element_verify(
+    driver, 
+    "//div[@class='a-section apex-core-price-identifier']"
+)
+
+# A partir daqui, o código continua normalmente
+print("Continuando execução...")
+
+
+best_offer = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']").get_property('innerText')
+
+price_cpu_ptbr = best_offer.split('\n')[0].split('$')[1]
 cpu_price = price_cpu_ptbr.replace('.', '').replace(',', '.')
 cpu_price = float(cpu_price)
 print(f"Preço CPU: {cpu_price}")
