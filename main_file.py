@@ -72,7 +72,7 @@ def element_verify(driver, xpath, max_tentativas=3, tempo_espera=3):
 driver = webdriver.Chrome()
 driver.get(cpu_link)
 
-driver.implicitly_wait(10)
+driver.implicitly_wait(6)
 
 try:
     # Tenta encontrar o elemento com o XPath específico
@@ -187,7 +187,7 @@ print("Preço CPU adicionado!")
 #################
 
 driver.get(keyboard_link)
-driver.implicitly_wait(10)
+driver.implicitly_wait(6)
 
 keyboard_ptbr = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']").get_property('innerText')
 
@@ -216,7 +216,7 @@ print("Preço Teclado adicionado!")
 ###############
 
 driver.get(mouse_link)
-driver.implicitly_wait(10)
+driver.implicitly_wait(6)
 
 
 mouse_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
@@ -245,7 +245,7 @@ print("Preço Mouse adicionado!")
 #################
 
 driver.get(headset_link)
-driver.implicitly_wait(10)
+driver.implicitly_wait(6)
 
 button = driver.find_element(By.XPATH, "//div[@data-sku-col='14-193']")
 button.click()
@@ -276,7 +276,7 @@ print("Preço Headset adicionado!")
 #############
 
 driver.get(ssd_link)
-driver.implicitly_wait(10)
+driver.implicitly_wait(6)
 
 #button = driver.find_element(By.ID, "adopt-accept-all-button")
 #button.click()
@@ -315,7 +315,7 @@ print("Preço SSD adicionado!")
 ##################
 
 driver.get(soundbar_link)
-driver.implicitly_wait(10)
+driver.implicitly_wait(6)
 
 soundbar_ptbr = driver.find_element(By.XPATH, "(//span[@class='price-default--current--F8OlYIo'])").get_property('innerText')
 soundbar_price = soundbar_ptbr.split('$')[1].replace(',', '.')
