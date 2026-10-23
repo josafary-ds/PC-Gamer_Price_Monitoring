@@ -17,6 +17,8 @@ df = pd.read_csv('PC_Gamer.csv', sep=';')
 ###############
 
 cpu_link = 'https://www.amazon.com.br/gp/aw/d/B0CQ4DTJYX?openid.assoc_handle=bramazon&openid.claimed_id=https%3A%2F%2Fwww.amazon.com.br%2Fap%2Fid%2Famzn1.account.AFSLCZAT6KPJPJL2MNOJJLJ4UUPA&openid.identity=https%3A%2F%2Fwww.amazon.com.br%2Fap%2Fid%2Famzn1.account.AFSLCZAT6KPJPJL2MNOJJLJ4UUPA&openid.mode=id_res&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&openid.op_endpoint=https%3A%2F%2Fwww.amazon.com.br%2Fap%2Fsignin&openid.response_nonce=2026-08-01T19%3A18%3A36Z-7015999307553914865&openid.return_to=https%3A%2F%2Fwww.amazon.com.br%2Fgp%2Faw%2Fd%2FB0CQ4DTJYX&openid.signed=assoc_handle%2Cclaimed_id%2Cidentity%2Cmode%2Cns%2Cop_endpoint%2Cresponse_nonce%2Creturn_to%2Cns.pape%2Cpape.auth_policies%2Cpape.auth_time%2Csigned&openid.ns.pape=http%3A%2F%2Fspecs.openid.net%2Fextensions%2Fpape%2F1.0&openid.pape.auth_policies=http%3A%2F%2Fschemas.openid.net%2Fpape%2Fpolicies%2F2007%2F06%2Fnone&openid.pape.auth_time=2026-08-01T19%3A18%3A36Z&openid.sig=vZYwcxsW9yDyHL7oq%2FVX8u6giWcqbwWnMK7BYFzHluM%3D&serial='
+cpu_link_kabum = 'https://www.kabum.com.br/produto/523518/processador-amd-ryzen-5-5600gt-4-6ghz-cache-19mb-am4-6-nucleos-12-threads-placa-de-video-com-cooler-100-100001488?gclsrc=aw.ds&gad_source=1&gad_campaignid=23709297066&gclid=Cj0KCQjw6ObWBhDDARIsAFdfcUjAzRBtPzKwmP_wVBh9u1UyZAArLl8Cyn0kwuKN8WiJIcFb001xyMoaAnwqEALw_wcB'
+cpu_link_ML = 'https://www.mercadolivre.com.br/processador-amd-ryzen-5-5600gt-com-cooler-36ghz-46ghz-turbo-6-cores-12-thread/p/MLB32444906?pdp_filters=item_id%3AMLB3764931975&sid=bookmarks#polycard_client=bookmarks&wid=MLB3764931975&sid=bookmarks'
 motherboard_link = 'https://www.terabyteshop.com.br/produto/18646/placa-mae-msi-b550m-a-pro-chipset-b550-amd-am4-matx-ddr4?gad_source=1&gad_campaignid=16136003025&gclid=CjwKCAjw-dfOBhAjEiwAq0RwIz8B9H8t5nWpALxwlzeNSRzDe_0N0SyEK5sfVcw5-6LGCgzhKTTASBoCiYIQAvD_BwE'
 ssd_link = 'https://pt.aliexpress.com/item/1005008637007198.html?spm=a2g0o.detail.pcDetailTopMoreOtherSeller.5.332c14e5OoUQoO&gps-id=pcDetailTopMoreOtherSeller&scm=1007.40050.354490.0&scm_id=1007.40050.354490.0&scm-url=1007.40050.354490.0&pvid=e263937f-c5ec-4818-8f08-909e58da74a9&_t=gps-id%3ApcDetailTopMoreOtherSeller%2Cscm-url%3A1007.40050.354490.0%2Cpvid%3Ae263937f-c5ec-4818-8f08-909e58da74a9%2Ctpp_buckets%3A668%232846%238114%231999&pdp_ext_f=%7B"order"%3A"3561"%2C"eval"%3A"1"%2C"sceneId"%3A"30050"%2C"fromPage"%3A"recommend"%7D&pdp_npi=6%40dis%21BRL%21543.95%21380.76%21%21%2197.10%2167.97%21%402101d3fe17909007649482517e14a9%2112000060662629192%21rec%21BR%217714416806%21X%211%210%21n_tag%3A-29911%3Bd%3A137eff22%3Bm03_new_user%3A-29895&utparam-url=scene%3ApcDetailTopMoreOtherSeller%7Cquery_from%3A%7Cx_object_id%3A1005008637007198%7C_p_origin_prod%3A'
 gabinete_link = 'https://www.kabum.com.br/produto/887046/gabinete-gaming-c3tech-aquarius-com-vidro-temperado-sem-fonte-mt-g860bk-'
@@ -27,9 +29,9 @@ keyboard_link = 'https://www.amazon.com.br/Teclado-Mecânico-Redragon-Kumara-Swi
 
 
 
-#####################
-#### PROCESSADOR ####
-#####################
+############################
+#### PROCESSADOR AMAZON ####
+############################
 
 def element_verify(driver, xpath, max_tentativas=3, tempo_espera=3):
     """
@@ -105,9 +107,9 @@ best_offer = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-pr
 price_cpu_ptbr = best_offer.split('\n')[0].split('$')[1]
 cpu_price = price_cpu_ptbr.replace('.', '').replace(',', '.')
 cpu_price = float(cpu_price)
-print(f"Preço CPU: {cpu_price}")
+print(f"Preço CPU Amazon: {cpu_price}")
 
-item = 'CPU'
+item = 'CPU Amazon'
 descricao = 'AMD Ryzen 5 5600GT'
 data = date.today()
 
@@ -119,8 +121,61 @@ new_data = pd.DataFrame([{
 }])
 
 df = pd.concat([df, new_data], ignore_index=True)
-print("Preço CPU adicionado!")
+print("Preço CPU Amazon adicionado!")
 
+
+###########################
+#### PROCESSADOR KABUM ####
+###########################
+
+driver.get(cpu_link_kabum)
+driver.implicitly_wait(6)
+
+cpu_kabum_ptbr = driver.find_element(By.XPATH, "//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs']").get_property('innerText')
+cpu_kabum_price = cpu_kabum_ptbr.split('\xa0')[1].replace(',', '.')
+cpu_kabum_price = round(float(cpu_kabum_price)*10, 2)
+print(f"Preço CPU Kabum: {cpu_kabum_price}")
+
+item = 'CPU Kabum'
+descricao = 'AMD Ryzen 5 5600GT'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': cpu_kabum_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço CPU Kabum adicionado!")
+
+
+########################
+#### PROCESSADOR ML ####
+########################
+
+driver.get(cpu_link_ML)
+driver.implicitly_wait(6)
+
+cpu_ML_ptbr = driver.find_element(By.XPATH, "//div[@class='ui-pdp-price__second-line']").get_property('innerText')
+cpu_ML_price = cpu_ML_ptbr.split('\n')[1]
+cpu_ML_price = float(cpu_ML_price)
+print(f"Preço CPU Mercado Livre: {cpu_ML_price}")
+
+item = 'CPU ML'
+descricao = 'AMD Ryzen 5 5600GT'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': cpu_ML_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço CPU ML adicionado!")
 
 
 #####################
@@ -378,7 +433,7 @@ for item in df['Item'].unique():
     df_itens[item] = df_itens[item].sort_values('Data')  # Ordenar por data
 
 # 3. Gráficos separados para cada item (subplots)
-fig, axes = plt.subplots(3, 2, figsize=(15, 12))
+fig, axes = plt.subplots(4, 2, figsize=(15, 12))
 axes = axes.flatten()
 
 cores = ['black', 'blue', 'red', 'green', 'magenta', 'orange', 'darkviolet', 'firebrick']
