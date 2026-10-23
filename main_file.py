@@ -72,6 +72,7 @@ def element_verify(driver, xpath, max_tentativas=3, tempo_espera=3):
     raise SystemExit("Execução interrompida: elemento não encontrado.")
 
 driver = webdriver.Chrome()
+driver.maximize_window()
 driver.get(cpu_link)
 
 driver.implicitly_wait(6)
