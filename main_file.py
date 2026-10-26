@@ -33,377 +33,377 @@ keyboard_link = 'https://www.amazon.com.br/Teclado-Mecânico-Redragon-Kumara-Swi
 #### PROCESSADOR AMAZON ####
 ############################
 
-def element_verify(driver, xpath, max_tentativas=3, tempo_espera=3):
-    """
-    Verifica a presença de um elemento pelo XPath.
-    Se não encontrar, dá refresh na página e tenta novamente.
-    Após max_tentativas sem sucesso, para o código com mensagem de erro.
-    
-    Args:
-        driver: instância do webdriver
-        xpath: string do XPath a ser verificado
-        max_tentativas: número máximo de tentativas (padrão: 3)
-        tempo_espera: segundos de espera após refresh (padrão: 3)
-    
-    Returns:
-        O elemento encontrado
-    """
-    for tentativa in range(1, max_tentativas + 1):
-        try:
-            elemento = driver.find_element(By.XPATH, xpath)
-            print(f"✅ Elemento encontrado na tentativa {tentativa}!")
-            return elemento
-        except NoSuchElementException:
-            print(f"⚠️  Tentativa {tentativa}/{max_tentativas}: elemento não encontrado.")
-            
-            # Se ainda não atingiu o máximo de tentativas, dá refresh
-            if tentativa < max_tentativas:
-                print(f"🔄 Atualizando a página e aguardando {tempo_espera}s...")
-                driver.refresh()
-                time.sleep(tempo_espera)
-    
-    # Se chegou aqui, esgotou as tentativas
-    print("\n" + "="*60)
-    print("❌ ERRO: Elemento não encontrado após 3 tentativas!")
-    print(f"   XPath verificado: {xpath}")
-    print("   Verifique se o endereço XPATH está correto.")
-    print("="*60)
-    driver.quit()
-    raise SystemExit("Execução interrompida: elemento não encontrado.")
-
-driver = webdriver.Chrome()
-driver.maximize_window()
-driver.get(cpu_link)
-
-driver.implicitly_wait(6)
-
-try:
-    # Tenta encontrar o elemento com o XPath específico
-    botao_continuar = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[3]/div/div/form/div/div/span")
-    
-    # Se encontrou, clica
-    botao_continuar.click()
-    print("Botão encontrado e clicado com sucesso!")
-    
-    # Aguarda a navegação após o clique
-    WebDriverWait(driver, 5).until(EC.staleness_of(botao_continuar))
-    
-except NoSuchElementException:
-    # Se não encontrou, apenas continua
-    print("Botão NÃO encontrado. Continuando execução...")
-
-
-# Chama a função com o XPath desejado
-elemento = element_verify(
-    driver, 
-    "//div[@class='a-section apex-core-price-identifier']"
-)
-
-# A partir daqui, o código continua normalmente
-print("Continuando execução...")
-
-
-best_offer = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']").get_property('innerText')
-
-price_cpu_ptbr = best_offer.split('\n')[0].split('$')[1]
-cpu_price = price_cpu_ptbr.replace('.', '').replace(',', '.')
-cpu_price = float(cpu_price)
-print(f"Preço CPU Amazon: {cpu_price}")
-
-item = 'CPU Amazon'
-descricao = 'AMD Ryzen 5 5600GT'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': cpu_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço CPU Amazon adicionado!")
-
-
-###########################
-#### PROCESSADOR KABUM ####
-###########################
-
-driver.get(cpu_link_kabum)
-driver.implicitly_wait(6)
-
-cpu_kabum_ptbr = driver.find_element(By.XPATH, "//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs']").get_property('innerText')
-cpu_kabum_price = cpu_kabum_ptbr.split('\xa0')[1].replace(',', '.')
-cpu_kabum_price = round(float(cpu_kabum_price)*10, 2)
-print(f"Preço CPU Kabum: {cpu_kabum_price}")
-
-item = 'CPU Kabum'
-descricao = 'AMD Ryzen 5 5600GT'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': cpu_kabum_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço CPU Kabum adicionado!")
-
-
-########################
-#### PROCESSADOR ML ####
-########################
-
-driver.get(cpu_link_ML)
-driver.implicitly_wait(6)
-
-cpu_ML_ptbr = driver.find_element(By.XPATH, "//div[@class='ui-pdp-price__second-line']").get_property('innerText')
-cpu_ML_price = cpu_ML_ptbr.split('\n')[1]
-cpu_ML_price = float(cpu_ML_price)
-print(f"Preço CPU Mercado Livre: {cpu_ML_price}")
-
-item = 'CPU ML'
-descricao = 'AMD Ryzen 5 5600GT'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': cpu_ML_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço CPU ML adicionado!")
-
-
-#####################
-#### MOTHERBOARD ####
-#####################
-
-#driver.get(motherboard_link)
-#driver.implicitly_wait(10)
-
-#mboard_ptbr = driver.find_element(By.ID, 'valParc').get_property('innerText')
-#mboard_price = mboard_ptbr.split(' ')[1].replace(',', '.')
-#mboard_price = float(mboard_price)
-#print(f"Preço Placa-mãe: {mboard_price}")
-
-#item = 'Motherboard'
-#descricao = 'Chronos B550M-CR'
+#def element_verify(driver, xpath, max_tentativas=3, tempo_espera=3):
+#    """
+#    Verifica a presença de um elemento pelo XPath.
+#    Se não encontrar, dá refresh na página e tenta novamente.
+#    Após max_tentativas sem sucesso, para o código com mensagem de erro.
+#    
+#    Args:
+#        driver: instância do webdriver
+#        xpath: string do XPath a ser verificado
+#        max_tentativas: número máximo de tentativas (padrão: 3)
+#        tempo_espera: segundos de espera após refresh (padrão: 3)
+#    
+#    Returns:
+#        O elemento encontrado
+#    """
+#    for tentativa in range(1, max_tentativas + 1):
+#        try:
+#            elemento = driver.find_element(By.XPATH, xpath)
+#            print(f"✅ Elemento encontrado na tentativa {tentativa}!")
+#            return elemento
+#        except NoSuchElementException:
+#            print(f"⚠️  Tentativa {tentativa}/{max_tentativas}: elemento não encontrado.")
+#            
+#            # Se ainda não atingiu o máximo de tentativas, dá refresh
+#            if tentativa < max_tentativas:
+#                print(f"🔄 Atualizando a página e aguardando {tempo_espera}s...")
+#                driver.refresh()
+#                time.sleep(tempo_espera)
+#    
+#    # Se chegou aqui, esgotou as tentativas
+#    print("\n" + "="*60)
+#    print("❌ ERRO: Elemento não encontrado após 3 tentativas!")
+#    print(f"   XPath verificado: {xpath}")
+#    print("   Verifique se o endereço XPATH está correto.")
+#    print("="*60)
+#    driver.quit()
+#    raise SystemExit("Execução interrompida: elemento não encontrado.")
+#
+#driver = webdriver.Chrome()
+#driver.maximize_window()
+#driver.get(cpu_link)
+#
+#driver.implicitly_wait(6)
+#
+#try:
+#    # Tenta encontrar o elemento com o XPath específico
+#    botao_continuar = driver.find_element(By.XPATH, "/html/body/div/div[1]/div[3]/div/div/form/div/div/span")
+#    
+#    # Se encontrou, clica
+#    botao_continuar.click()
+#    print("Botão encontrado e clicado com sucesso!")
+#    
+#    # Aguarda a navegação após o clique
+#    WebDriverWait(driver, 5).until(EC.staleness_of(botao_continuar))
+#    
+#except NoSuchElementException:
+#    # Se não encontrou, apenas continua
+#    print("Botão NÃO encontrado. Continuando execução...")
+#
+#
+## Chama a função com o XPath desejado
+#elemento = element_verify(
+#    driver, 
+#    "//div[@class='a-section apex-core-price-identifier']"
+#)
+#
+## A partir daqui, o código continua normalmente
+#print("Continuando execução...")
+#
+#
+#best_offer = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']").get_property('innerText')
+#
+#price_cpu_ptbr = best_offer.split('\n')[0].split('$')[1]
+#cpu_price = price_cpu_ptbr.replace('.', '').replace(',', '.')
+#cpu_price = float(cpu_price)
+#print(f"Preço CPU Amazon: {cpu_price}")
+#
+#item = 'CPU Amazon'
+#descricao = 'AMD Ryzen 5 5600GT'
 #data = date.today()
-
+#
 #new_data = pd.DataFrame([{
 #    'Item': item,
 #    'Descricao': descricao,
-#    'Preco': mboard_price,
+#    'Preco': cpu_price,
 #    'Data': data
 #}])
-
+#
 #df = pd.concat([df, new_data], ignore_index=True)
-#print("Preço Placa-mãe adicionado!")
-
-
-
-##################
-#### GABINETE ####
-##################
-
-#driver.get(gabinete_link)
-#driver.implicitly_wait(10)
-
-#button = driver.find_element(By.ID, "adopt-accept-all-button")
-#button.click()
-
-#gabinete_ptbr = driver.find_element(By.XPATH, "(//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs'])").get_property('innerText')
-#gabinete_price = gabinete_ptbr.split('\xa0')[1].replace(',', '.')
-#gabinete_price = round(float(gabinete_price)*10, 2)
-#print(f"Preço Gabinete: {gabinete_price}")
-
-#item = 'Gabinete'
-#descricao = 'C3tech Aquarius'
+#print("Preço CPU Amazon adicionado!")
+#
+#
+############################
+##### PROCESSADOR KABUM ####
+############################
+#
+#driver.get(cpu_link_kabum)
+#driver.implicitly_wait(6)
+#
+#cpu_kabum_ptbr = driver.find_element(By.XPATH, "//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs']").get_property('innerText')
+#cpu_kabum_price = cpu_kabum_ptbr.split('\xa0')[1].replace(',', '.')
+#cpu_kabum_price = round(float(cpu_kabum_price)*10, 2)
+#print(f"Preço CPU Kabum: {cpu_kabum_price}")
+#
+#item = 'CPU Kabum'
+#descricao = 'AMD Ryzen 5 5600GT'
 #data = date.today()
-
+#
 #new_data = pd.DataFrame([{
 #    'Item': item,
 #    'Descricao': descricao,
-#    'Preco': gabinete_price,
+#    'Preco': cpu_kabum_price,
 #    'Data': data
 #}])
-
+#
 #df = pd.concat([df, new_data], ignore_index=True)
-#print("Preço Gabinete adicionado!")
-
-
-
-#################
-#### TECLADO ####
-#################
-
-driver.get(keyboard_link)
-driver.implicitly_wait(6)
-
-keyboard_ptbr = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']").get_property('innerText')
-
-keyboard_price = keyboard_ptbr.split('\n')[0].split('$')[1].replace(',', '.')
-keyboard_price = float(keyboard_price)
-print(f"Preço Teclado: {keyboard_price}")
-
-item = 'Teclado'
-descricao = 'Redragon Kumara Wireless'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': keyboard_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço Teclado adicionado!")
-
-
-
-###############
-#### MOUSE ####
-###############
-
-driver.get(mouse_link)
-driver.implicitly_wait(6)
-
-
-mouse_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
-mouse_price = mouse_ptbr.split('$')[1].replace(',', '.')
-mouse_price = float(mouse_price)
-print(f"Preço Mouse: {mouse_price}")
-
-item = 'Mouse'
-descricao = 'Attack Shark Wireless X11'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': mouse_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço Mouse adicionado!")
-
-
-
-#################
-#### HEADSET ####
-#################
-
-driver.get(headset_link)
-driver.implicitly_wait(6)
-
-button = driver.find_element(By.XPATH, "//div[@data-sku-col='14-193']")
-button.click()
-
-headset_ptbr = driver.find_element(By.XPATH, "//div[@class='price-default--currentWrap--A_MNgCG']").get_property('innerText')
-headset_price = headset_ptbr.split('$')[1].replace(',', '.')
-headset_price = float(headset_price)
-headset_price
-print(f"Preço Headset: {headset_price}")
-
-item = 'Headset'
-descricao = 'BINNUNE Bluetooth'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': headset_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço Headset adicionado!")
-
-
-#############
-#### SSD ####
-#############
-
-driver.get(ssd_link)
-driver.implicitly_wait(6)
-
-#button = driver.find_element(By.ID, "adopt-accept-all-button")
+#print("Preço CPU Kabum adicionado!")
+#
+#
+#########################
+##### PROCESSADOR ML ####
+#########################
+#
+#driver.get(cpu_link_ML)
+#driver.implicitly_wait(6)
+#
+#cpu_ML_ptbr = driver.find_element(By.XPATH, "//div[@class='ui-pdp-price__second-line']").get_property('innerText')
+#cpu_ML_price = cpu_ML_ptbr.split('\n')[1]
+#cpu_ML_price = float(cpu_ML_price)
+#print(f"Preço CPU Mercado Livre: {cpu_ML_price}")
+#
+#item = 'CPU ML'
+#descricao = 'AMD Ryzen 5 5600GT'
+#data = date.today()
+#
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': cpu_ML_price,
+#    'Data': data
+#}])
+#
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço CPU ML adicionado!")
+#
+#
+######################
+##### MOTHERBOARD ####
+######################
+#
+##driver.get(motherboard_link)
+##driver.implicitly_wait(10)
+#
+##mboard_ptbr = driver.find_element(By.ID, 'valParc').get_property('innerText')
+##mboard_price = mboard_ptbr.split(' ')[1].replace(',', '.')
+##mboard_price = float(mboard_price)
+##print(f"Preço Placa-mãe: {mboard_price}")
+#
+##item = 'Motherboard'
+##descricao = 'Chronos B550M-CR'
+##data = date.today()
+#
+##new_data = pd.DataFrame([{
+##    'Item': item,
+##    'Descricao': descricao,
+##    'Preco': mboard_price,
+##    'Data': data
+##}])
+#
+##df = pd.concat([df, new_data], ignore_index=True)
+##print("Preço Placa-mãe adicionado!")
+#
+#
+#
+###################
+##### GABINETE ####
+###################
+#
+##driver.get(gabinete_link)
+##driver.implicitly_wait(10)
+#
+##button = driver.find_element(By.ID, "adopt-accept-all-button")
+##button.click()
+#
+##gabinete_ptbr = driver.find_element(By.XPATH, "(//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs'])").get_property('innerText')
+##gabinete_price = gabinete_ptbr.split('\xa0')[1].replace(',', '.')
+##gabinete_price = round(float(gabinete_price)*10, 2)
+##print(f"Preço Gabinete: {gabinete_price}")
+#
+##item = 'Gabinete'
+##descricao = 'C3tech Aquarius'
+##data = date.today()
+#
+##new_data = pd.DataFrame([{
+##    'Item': item,
+##    'Descricao': descricao,
+##    'Preco': gabinete_price,
+##    'Data': data
+##}])
+#
+##df = pd.concat([df, new_data], ignore_index=True)
+##print("Preço Gabinete adicionado!")
+#
+#
+#
+##################
+##### TECLADO ####
+##################
+#
+#driver.get(keyboard_link)
+#driver.implicitly_wait(6)
+#
+#keyboard_ptbr = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']").get_property('innerText')
+#
+#keyboard_price = keyboard_ptbr.split('\n')[0].split('$')[1].replace(',', '.')
+#keyboard_price = float(keyboard_price)
+#print(f"Preço Teclado: {keyboard_price}")
+#
+#item = 'Teclado'
+#descricao = 'Redragon Kumara Wireless'
+#data = date.today()
+#
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': keyboard_price,
+#    'Data': data
+#}])
+#
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço Teclado adicionado!")
+#
+#
+#
+################
+##### MOUSE ####
+################
+#
+#driver.get(mouse_link)
+#driver.implicitly_wait(6)
+#
+#
+#mouse_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
+#mouse_price = mouse_ptbr.split('$')[1].replace(',', '.')
+#mouse_price = float(mouse_price)
+#print(f"Preço Mouse: {mouse_price}")
+#
+#item = 'Mouse'
+#descricao = 'Attack Shark Wireless X11'
+#data = date.today()
+#
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': mouse_price,
+#    'Data': data
+#}])
+#
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço Mouse adicionado!")
+#
+#
+#
+##################
+##### HEADSET ####
+##################
+#
+#driver.get(headset_link)
+#driver.implicitly_wait(6)
+#
+#button = driver.find_element(By.XPATH, "//div[@data-sku-col='14-193']")
 #button.click()
-
-button_550gb = driver.find_element(By.XPATH, "//div[@data-sku-col='19032-8647']")
-button_550gb.click()
-
-ssd_price_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
-ssd_price = ssd_price_ptbr.split('$')[1].replace(',', '.')
-ssd_price = float(ssd_price)
-
-importacao = ssd_price*0.16
-icms = ssd_price*0.29
-
-ssd_aliex_price = round(ssd_price + importacao + icms, 2)
-print(f"Preço SSD: {ssd_aliex_price}")
-
-item = 'SSD'
-descricao = 'SSD Netac nvme 500GB'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': ssd_aliex_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço SSD adicionado!")
-
-
-
-##################
-#### SOUNDBAR ####
-##################
-
-driver.get(soundbar_link)
-driver.implicitly_wait(6)
-
-soundbar_ptbr = driver.find_element(By.XPATH, "(//span[@class='price-default--current--F8OlYIo'])").get_property('innerText')
-soundbar_price = soundbar_ptbr.split('$')[1].replace(',', '.')
-soundbar_price = float(soundbar_price)
-print(f"Preço Soundbar: {soundbar_price}")
-
-item = 'Soundbar'
-descricao = 'NIYE V8'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': soundbar_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço Soundbar adicionado!")
-
-
-
-#####################
-#### SAVING DATA ####
-#####################
-
-df.to_csv('PC_Gamer.csv', sep=';', index=None)
-
-driver.close()
-
-
-
+#
+#headset_ptbr = driver.find_element(By.XPATH, "//div[@class='price-default--currentWrap--A_MNgCG']").get_property('innerText')
+#headset_price = headset_ptbr.split('$')[1].replace(',', '.')
+#headset_price = float(headset_price)
+#headset_price
+#print(f"Preço Headset: {headset_price}")
+#
+#item = 'Headset'
+#descricao = 'BINNUNE Bluetooth'
+#data = date.today()
+#
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': headset_price,
+#    'Data': data
+#}])
+#
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço Headset adicionado!")
+#
+#
+##############
+##### SSD ####
+##############
+#
+#driver.get(ssd_link)
+#driver.implicitly_wait(6)
+#
+##button = driver.find_element(By.ID, "adopt-accept-all-button")
+##button.click()
+#
+#button_550gb = driver.find_element(By.XPATH, "//div[@data-sku-col='19032-8647']")
+#button_550gb.click()
+#
+#ssd_price_ptbr = driver.find_element(By.XPATH, "(//div[@class='price-default--currentWrap--A_MNgCG'])").get_property('innerText')
+#ssd_price = ssd_price_ptbr.split('$')[1].replace(',', '.')
+#ssd_price = float(ssd_price)
+#
+#importacao = ssd_price*0.16
+#icms = ssd_price*0.29
+#
+#ssd_aliex_price = round(ssd_price + importacao + icms, 2)
+#print(f"Preço SSD: {ssd_aliex_price}")
+#
+#item = 'SSD'
+#descricao = 'SSD Netac nvme 500GB'
+#data = date.today()
+#
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': ssd_aliex_price,
+#    'Data': data
+#}])
+#
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço SSD adicionado!")
+#
+#
+#
+###################
+##### SOUNDBAR ####
+###################
+#
+#driver.get(soundbar_link)
+#driver.implicitly_wait(6)
+#
+#soundbar_ptbr = driver.find_element(By.XPATH, "(//span[@class='price-default--current--F8OlYIo'])").get_property('innerText')
+#soundbar_price = soundbar_ptbr.split('$')[1].replace(',', '.')
+#soundbar_price = float(soundbar_price)
+#print(f"Preço Soundbar: {soundbar_price}")
+#
+#item = 'Soundbar'
+#descricao = 'NIYE V8'
+#data = date.today()
+#
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': soundbar_price,
+#    'Data': data
+#}])
+#
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço Soundbar adicionado!")
+#
+#
+#
+######################
+##### SAVING DATA ####
+######################
+#
+#df.to_csv('PC_Gamer.csv', sep=';', index=None)
+#
+#driver.close()
+#
+#
+#
 #########################
 #### GENERATING PLOT ####
 #########################
