@@ -25,6 +25,7 @@ ssd_link = 'https://pt.aliexpress.com/item/1005008637007198.html?spm=a2g0o.detai
 gabinete_link = 'https://www.kabum.com.br/produto/887046/gabinete-gaming-c3tech-aquarius-com-vidro-temperado-sem-fonte-mt-g860bk-'
 mouse_link = 'https://pt.aliexpress.com/item/1005012371400759.html?spm=a2g0o.productlist.main.23.459c25f81bcfCL&algo_pvid=fe26c5bb-67a9-42a2-8835-77951b1c0678&algo_exp_id=fe26c5bb-67a9-42a2-8835-77951b1c0678-20&pdp_ext_f=%7B"order"%3A"23"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21336.34%21147.99%21%21%21407.73%21179.40%21%402101f70717832764055654429e72c1%2112000058191763437%21sea%21BR%217714416806%21X%211%210%21n_tag%3A-29911%3Bd%3A137eff22%3Bm03_new_user%3A-29895&curPageLogUid=Lq0Biyq3hzZX&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005012371400759%7C_p_origin_prod%3A'
 headset_link = 'https://pt.aliexpress.com/item/1005009495386384.html?aff_fcid=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&tt=CPS_NORMAL&aff_fsk=_c3gITj9D&aff_platform=shareComponent-detail&sk=_c3gITj9D&aff_trace_key=24cb7ac286da4a1dac72bd6b45a01629-1779218687223-01059-_c3gITj9D&terminal_id=d874b61df0ea490bb40119dc36685fe8&afSmartRedirect=y'
+headset_2_link = 'https://pt.aliexpress.com/item/1005007887384358.html?pdp_ext_f=%7B"sku_id"%3A"12000043095444286"%7D&sourceType=1&spm=a2g0o.wish-manage-home.0.0&gatewayAdapt=glo2bra'
 soundbar_link = 'https://pt.aliexpress.com/item/1005006436035998.html?spm=a2g0o.productlist.main.2.26c7y0DSy0DSur&algo_pvid=a6a82e3c-ebe8-41ee-9da0-1fe9c6c92b4a&algo_exp_id=a6a82e3c-ebe8-41ee-9da0-1fe9c6c92b4a-1&pdp_ext_f=%7B"order"%3A"4969"%2C"spu_best_type"%3A"price"%2C"eval"%3A"1"%2C"fromPage"%3A"search"%7D&pdp_npi=6%40dis%21BRL%21229.12%21100.55%21%21%21287.08%21125.98%21%402103212b17798072772552193e62f7%2112000037173402947%21sea%21BR%210%21ABX%211%210%21n_tag%3A-29910%3Bd%3Aeaf596e%3Bm03_new_user%3A-29895%3BpisId%3A5000000207258923&curPageLogUid=jr5V9vRJV1Bl&utparam-url=scene%3Asearch%7Cquery_from%3A%7Cx_object_id%3A1005006436035998%7C_p_origin_prod%3A'
 keyboard_link = 'https://www.amazon.com.br/Teclado-Mecânico-Redragon-Kumara-Switch/dp/B0C1QFVYQJ/ref=asc_df_B0C1QFVYQJ?mcid=72fcea083724318fb0a2122c67ecec3d&tag=googleshopp00-20&linkCode=df0&hvadid=709884378379&hvpos=&hvnetw=g&hvrand=9615461458994901117&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001621&hvtargid=pla-2243950074900&psc=1&hvocijid=9615461458994901117-B0C1QFVYQJ-&hvexpln=0&language=pt_BR'
 
@@ -130,54 +131,54 @@ print("Preço CPU Amazon adicionado!")
 #### PROCESSADOR KABUM ####
 ###########################
 
-driver.get(cpu_link_kabum)
-driver.implicitly_wait(6)
-
-cpu_kabum_ptbr = driver.find_element(By.XPATH, "//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs']").get_property('innerText')
-cpu_kabum_price = cpu_kabum_ptbr.split('\xa0')[1].replace(',', '.')
-cpu_kabum_price = round(float(cpu_kabum_price)*10, 2)
-print(f"Preço CPU Kabum: {cpu_kabum_price}")
-
-item = 'CPU Kabum'
-descricao = 'AMD Ryzen 5 5600GT'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': cpu_kabum_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço CPU Kabum adicionado!")
+#driver.get(cpu_link_kabum)
+#driver.implicitly_wait(6)
+#
+#cpu_kabum_ptbr = driver.find_element(By.XPATH, "//p[@class='text-xs font-normal leading-normal text-gray-700']/b[@class='text-xs']").get_property('innerText')
+#cpu_kabum_price = cpu_kabum_ptbr.split('\xa0')[1].replace(',', '.')
+#cpu_kabum_price = round(float(cpu_kabum_price)*10, 2)
+#print(f"Preço CPU Kabum: {cpu_kabum_price}")
+#
+#item = 'CPU Kabum'
+#descricao = 'AMD Ryzen 5 5600GT'
+#data = date.today()
+#
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': cpu_kabum_price,
+#    'Data': data
+#}])
+#
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço CPU Kabum adicionado!")
 
 
 ########################
 #### PROCESSADOR ML ####
 ########################
 
-driver.get(cpu_link_ML)
-driver.implicitly_wait(6)
-
-cpu_ML_ptbr = driver.find_element(By.XPATH, "//div[@class='ui-pdp-price__second-line']").get_property('innerText')
-cpu_ML_price = cpu_ML_ptbr.split('\n')[1].replace('.', '')
-cpu_ML_price = float(cpu_ML_price)
-print(f"Preço CPU Mercado Livre: {cpu_ML_price}")
-
-item = 'CPU ML'
-descricao = 'AMD Ryzen 5 5600GT'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': cpu_ML_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço CPU ML adicionado!")
+#driver.get(cpu_link_ML)
+#driver.implicitly_wait(6)
+#
+#cpu_ML_ptbr = driver.find_element(By.XPATH, "//div[@class='ui-pdp-price__second-line']").get_property('innerText')
+#cpu_ML_price = cpu_ML_ptbr.split('\n')[1].replace('.', '')
+#cpu_ML_price = float(cpu_ML_price)
+#print(f"Preço CPU Mercado Livre: {cpu_ML_price}")
+#
+#item = 'CPU ML'
+#descricao = 'AMD Ryzen 5 5600GT'
+#data = date.today()
+#
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': cpu_ML_price,
+#    'Data': data
+#}])
+#
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço CPU ML adicionado!")
 
 
 #####################
@@ -243,28 +244,28 @@ print("Preço CPU ML adicionado!")
 #### TECLADO ####
 #################
 
-driver.get(keyboard_link)
-driver.implicitly_wait(6)
-
-keyboard_ptbr = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']").get_property('innerText')
-
-keyboard_price = keyboard_ptbr.split('\n')[0].split('$')[1].replace(',', '.')
-keyboard_price = float(keyboard_price)
-print(f"Preço Teclado: {keyboard_price}")
-
-item = 'Teclado'
-descricao = 'Redragon Kumara Wireless'
-data = date.today()
-
-new_data = pd.DataFrame([{
-    'Item': item,
-    'Descricao': descricao,
-    'Preco': keyboard_price,
-    'Data': data
-}])
-
-df = pd.concat([df, new_data], ignore_index=True)
-print("Preço Teclado adicionado!")
+#driver.get(keyboard_link)
+#driver.implicitly_wait(6)
+#
+#keyboard_ptbr = driver.find_element(By.XPATH, "//div[@class='a-section apex-core-price-identifier']").get_property('innerText')
+#
+#keyboard_price = keyboard_ptbr.split('\n')[0].split('$')[1].replace(',', '.')
+#keyboard_price = float(keyboard_price)
+#print(f"Preço Teclado: {keyboard_price}")
+#
+#item = 'Teclado'
+#descricao = 'Redragon Kumara Wireless'
+#data = date.today()
+#
+#new_data = pd.DataFrame([{
+#    'Item': item,
+#    'Descricao': descricao,
+#    'Preco': keyboard_price,
+#    'Data': data
+#}])
+#
+#df = pd.concat([df, new_data], ignore_index=True)
+#print("Preço Teclado adicionado!")
 
 
 
@@ -310,7 +311,6 @@ button.click()
 headset_ptbr = driver.find_element(By.XPATH, "//div[@class='price-default--currentWrap--A_MNgCG']").get_property('innerText')
 headset_price = headset_ptbr.split('$')[1].replace(',', '.')
 headset_price = float(headset_price)
-headset_price
 print(f"Preço Headset: {headset_price}")
 
 item = 'Headset'
@@ -326,6 +326,32 @@ new_data = pd.DataFrame([{
 
 df = pd.concat([df, new_data], ignore_index=True)
 print("Preço Headset adicionado!")
+
+
+###################
+#### HEADSET_2 ####
+###################
+
+driver.get(headset_2_link)
+
+headset_2_ptbr = driver.find_element(By.XPATH, "//span[@class='price-default--current--F8OlYIo']").get_property('innerText')
+headset_2_price = headset_2_ptbr.split('$')[1].replace(',', '.')
+headset_2_price = float(headset_2_price)
+print(f"Preço Headset: {headset_2_price}")
+
+item = 'Headset_2'
+descricao = 'SmallWOLF Bluetooth'
+data = date.today()
+
+new_data = pd.DataFrame([{
+    'Item': item,
+    'Descricao': descricao,
+    'Preco': headset_2_price,
+    'Data': data
+}])
+
+df = pd.concat([df, new_data], ignore_index=True)
+print("Preço Headset_2 adicionado!")
 
 
 #############
